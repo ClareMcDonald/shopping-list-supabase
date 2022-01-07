@@ -134,3 +134,36 @@ footer {
     text-decoration: line-through;
     background-color: lightgreen;
 }
+
+button, #list-div {
+    cursor: pointer;
+}
+
+form label {
+    display: block;
+    color: mediumaquamarine;
+}
+
+#delete-button {
+    background-color: maroon;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+}
+
+#add-button {
+    background-color: mediumaquamarine;
+    padding: 10px;
+
+    border-radius: 5px;
+}
+
+#logout {
+    background-color: mistyrose;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+h1 {
+    font-family: fantasy;
+}
