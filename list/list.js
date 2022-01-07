@@ -37,7 +37,7 @@ async function renderItem(item) {
     
     itemEl.classList.add('item');
 
-    itemEl.textContent = item;
+    itemEl.textContent = `${item.quantity} ${item.item}`;
 
     return itemEl;
 
@@ -45,7 +45,7 @@ async function renderItem(item) {
 
 async function displayShoppingListItems() {
     const items = await getItems();
-    
+
     listEl.textContent = '';
 
     for (let item of items) {

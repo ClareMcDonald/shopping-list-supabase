@@ -13,14 +13,11 @@ export async function getItems() {
     return checkError(response);
 }
 
-export async function createItem(item, quantity) {
+export async function createItem(quantity, item) {
     const response = await client
         .from('list')
-        .insert([{
-            item: item,
-            quantity: quantity
-        }])
-        .match({ user_id: client.auth.user().id });
+        .insert([{ quantity, item }]);
+        //.match({ user_id: client.auth.user().id });
     
     return checkError(response);
 }
