@@ -21,6 +21,17 @@ export async function createItem(quantity, item) {
     return checkError(response);
 }
 
+export async function buyItem(id) {
+    const response = await client
+        .from('list')
+        .update([{
+            bought: true
+        }])
+        .match({ id: id });
+    
+    return checkError(response);
+}
+
 export async function deleteAllItems() {
     const response = await client
         .from('list')

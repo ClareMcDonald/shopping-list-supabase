@@ -1,4 +1,4 @@
-import { checkAuth, logout, getItems, createItem, deleteAllItems } from '../fetch-utils.js';
+import { checkAuth, logout, getItems, createItem, buyItem, deleteAllItems } from '../fetch-utils.js';
 
 checkAuth();
 
@@ -45,6 +45,12 @@ async function renderItem(item) {
 
     itemEl.textContent = `${item.quantity} ${item.item}`;
 
+    if (itemEl.bought) {
+        itemEl.classList.add('bought');
+    } else {
+        itemEl.classList.add('unbought');
+    }
+
     return itemEl;
 
 }
@@ -56,6 +62,13 @@ async function displayShoppingListItems() {
 
     for (let item of items) {
         const newItem = await renderItem(item);
+
+        newItem.addEventListener('click', async() => {
+            await buyItem();
+
+            await displayShoppingListItems();
+        });
+
         listEl.append(newItem);
     }
 }
