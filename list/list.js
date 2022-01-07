@@ -33,7 +33,7 @@ itemForm.addEventListener('submit', async(e) => {
 });
 
 deleteButton.addEventListener('click', async() => {
-    await deleteAllItems;
+    await deleteAllItems();
     await displayShoppingListItems();
 
 });
