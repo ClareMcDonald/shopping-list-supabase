@@ -24,9 +24,7 @@ export async function createItem(quantity, item) {
 export async function buyItem(id) {
     const response = await client
         .from('list')
-        .update([{
-            bought: true
-        }])
+        .update({ bought: true })
         .match({ id: id });
     
     return checkError(response);

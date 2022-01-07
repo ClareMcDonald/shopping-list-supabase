@@ -45,7 +45,7 @@ async function renderItem(item) {
 
     itemEl.textContent = `${item.quantity} ${item.item}`;
 
-    if (itemEl.bought) {
+    if (item.bought) {
         itemEl.classList.add('bought');
     } else {
         itemEl.classList.add('unbought');
@@ -64,8 +64,8 @@ async function displayShoppingListItems() {
         const newItem = await renderItem(item);
 
         newItem.addEventListener('click', async() => {
-            await buyItem();
-
+            await buyItem(item.id);
+            
             await displayShoppingListItems();
         });
 
