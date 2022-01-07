@@ -17,7 +17,14 @@ export async function createItem(quantity, item) {
     const response = await client
         .from('list')
         .insert([{ quantity, item }]);
-        //.match({ user_id: client.auth.user().id });
+    
+    return checkError(response);
+}
+
+export async function deleteAllItems() {
+    const response = await client
+        .from('list')
+        .delete();
     
     return checkError(response);
 }
